@@ -14,7 +14,7 @@ import lombok.NoArgsConstructor;
 @Data
 @Entity
 @Table(name = "services")
-public class ServiceEntity {
+public class ApplicationEntity {
     @Id
     @SequenceGenerator(
             name = "service_id_sequence",
@@ -30,7 +30,7 @@ public class ServiceEntity {
     private String ipAddress;
     @NotEmpty(message = "Port number can't be empty")
     @Column(unique = true)
-    private int portNumber;
+    private String portNumber;
     private String name;
     private String description;
     private String imageUrl;
