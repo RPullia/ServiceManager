@@ -5,7 +5,7 @@ import com.robp.serviceManager.domain.entity.ApplicationEntity;
 import com.robp.serviceManager.enumeration.Status;
 import com.robp.serviceManager.service.impl.ApplicationServiceImpl;
 import jakarta.validation.Valid;
-import lombok.RequiredArgsConstructor;
+import lombok.AllArgsConstructor;
 import org.springframework.core.io.ClassPathResource;
 import org.springframework.core.io.Resource;
 import org.springframework.http.ResponseEntity;
@@ -20,10 +20,11 @@ import static org.springframework.http.HttpStatus.*;
 import static org.springframework.http.MediaType.IMAGE_PNG_VALUE;
 
 @RestController
-@RequiredArgsConstructor
+@AllArgsConstructor
 @RequestMapping("/application")
 public class ApplicationController {
     private ApplicationServiceImpl applicationService;
+
 
     @GetMapping("/list")
     public ResponseEntity<Response> listApplications(){
@@ -41,14 +42,14 @@ public class ApplicationController {
     @PostMapping("/create")
     public ResponseEntity<Response> createApplication(@RequestBody @Valid ApplicationEntity application){
 
-        return ResponseEntity.ok(
+        return new ResponseEntity<>(
                 Response.builder()
                         .timeStamp(now())
                         .data(of("application", applicationService.createApplication(application)))
                         .message("Application created")
                         .status(CREATED)
                         .statusCode(CREATED.value())
-                        .build()
+                        .build(), CREATED
         );
     }
 
@@ -73,7 +74,7 @@ public class ApplicationController {
                 Response.builder()
                         .timeStamp(now())
                         .data(of("deleted", applicationService.deleteApplication(id)))
-                        .message("Application retrieved")
+                        .message("Application deleted")
                         .status(OK)
                         .statusCode(OK.value())
                         .build()

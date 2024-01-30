@@ -14,11 +14,11 @@ public class ServiceManagerApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(ServiceManagerApplication.class, args);
 	}
-
+/*
 	@Bean
 	CommandLineRunner run(ApplicationRepository applicationRepository){
 		return args -> {
 			applicationRepository.save(new ApplicationEntity(null, "192.168.1.27", 8088, "Test Service", "Test", "http://localhost:8090/application/image/leaf.png", Status.SERVICE_DOWN));
 		};
-	}
+	}*/
 }

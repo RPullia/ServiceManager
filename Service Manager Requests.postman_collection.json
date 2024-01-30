@@ -1,0 +1,148 @@
+{
+	"info": {
+		"_postman_id": "a7528181-992e-4084-8bb0-239039b208e9",
+		"name": "Service Manager Requests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "List applications",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/application/list",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"application",
+						"list"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create application",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n                \"ipAddress\": \"127.0.0.1\",\r\n                \"portNumber\": 8092,\r\n                \"name\": \"Test Service 3\",\r\n                \"type\": \"Test\",\r\n                \"imageUrl\": \"http://localhost:8090/application/image/leaf.png\",\r\n                \"status\": \"SERVICE_DOWN\"\r\n            }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8090/application/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"application",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get application",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/application/get/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"application",
+						"get",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete application",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/application/delete/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"application",
+						"delete",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Ping application",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/application/ping/127.0.0.1?portNumber=8091",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"application",
+						"ping",
+						"127.0.0.1"
+					],
+					"query": [
+						{
+							"key": "portNumber",
+							"value": "8091"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Image",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8090/application/image/leaf.png",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8090",
+					"path": [
+						"application",
+						"image",
+						"leaf.png"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
