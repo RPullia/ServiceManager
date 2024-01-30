@@ -32,7 +32,7 @@ public class ApplicationEntity {
     @Column(unique = true)
     private int portNumber;
     private String name;
-    private String description;
+    private String type;
     private String imageUrl;
     private Status status;
 

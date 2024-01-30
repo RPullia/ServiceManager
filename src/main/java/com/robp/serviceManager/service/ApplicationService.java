@@ -9,10 +9,10 @@ import java.util.Optional;
 public interface ApplicationService {
 
     ApplicationEntity createApplication(ApplicationEntity applicationEntity);
-    Collection<ApplicationEntity> listApplication(int limit);
+    Collection<ApplicationEntity> listApplications(int limit);
     Optional<ApplicationEntity> getApplication(Long id);
     ApplicationEntity updateApplication(ApplicationEntity applicationEntity);
-    void deleteApplication(Long id);
+    Boolean deleteApplication(Long id);
     ApplicationEntity ping(String ipAddress, int port) throws IOException;
 
 }

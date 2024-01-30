@@ -35,7 +35,7 @@ public class ApplicationServiceImpl implements ApplicationService {
     }
 
     @Override
-    public Collection<ApplicationEntity> listApplication(int limit) {
+    public Collection<ApplicationEntity> listApplications(int limit) {
         log.info("Fetching all applications");
         return applicationRepository.findAll(PageRequest.of(0, limit)).toList();
     }
@@ -53,9 +53,10 @@ public class ApplicationServiceImpl implements ApplicationService {
     }
 
     @Override
-    public void deleteApplication(Long id) {
+    public Boolean deleteApplication(Long id) {
         log.info("Deleting application {}", id);
         applicationRepository.deleteById(id);
+        return true;
     }
 
     @Override
@@ -86,6 +87,6 @@ public class ApplicationServiceImpl implements ApplicationService {
 
     private String setApplicationImageUrl() {
         Image image = Image.IMAGE_LEAF;
-        return ServletUriComponentsBuilder.fromCurrentContextPath().path("/resources/images" + image).toUriString();
+        return ServletUriComponentsBuilder.fromCurrentContextPath().path("/application/images" + image).toUriString();
     }
 }
