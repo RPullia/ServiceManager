@@ -6,6 +6,7 @@ import com.robp.serviceManager.enumeration.Status;
 import com.robp.serviceManager.repository.ApplicationRepository;
 import com.robp.serviceManager.service.ApplicationService;
 import jakarta.transaction.Transactional;
+import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.PageRequest;
@@ -20,7 +21,7 @@ import java.util.Optional;
 
 @Service
 @Transactional
-@RequiredArgsConstructor
+@AllArgsConstructor
 @Slf4j
 public class ApplicationServiceImpl implements ApplicationService {
 
@@ -63,6 +64,13 @@ public class ApplicationServiceImpl implements ApplicationService {
     public ApplicationEntity ping(String ipAddress, int port) throws IOException {
         log.info("Pinging application at {}:{}", ipAddress, port);
         ApplicationEntity applicationEntity = applicationRepository.findByIpAddressAndPortNumber(ipAddress, port);
+
+        if (applicationEntity == null) {
+            // Handle the case when the applicationEntity is not found
+            log.warn("Application not found for {}:{}", ipAddress, port);
+            return null;
+        }
+
         InetSocketAddress socketAddress = new InetSocketAddress(ipAddress, port);
 
         try (Socket socket = new Socket()) {
