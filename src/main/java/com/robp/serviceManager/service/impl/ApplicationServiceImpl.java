@@ -1,6 +1,7 @@
 package com.robp.serviceManager.service.impl;
 
 import com.robp.serviceManager.domain.entity.ApplicationEntity;
+import com.robp.serviceManager.enumeration.Image;
 import com.robp.serviceManager.enumeration.Status;
 import com.robp.serviceManager.repository.ApplicationRepository;
 import com.robp.serviceManager.service.ApplicationService;
@@ -9,6 +10,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
+import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
@@ -83,8 +85,7 @@ public class ApplicationServiceImpl implements ApplicationService {
     }
 
     private String setApplicationImageUrl() {
-        // todo
-
-        return null;
+        Image image = Image.IMAGE_LEAF;
+        return ServletUriComponentsBuilder.fromCurrentContextPath().path("/resources/images" + image).toUriString();
     }
 }

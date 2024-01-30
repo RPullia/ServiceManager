@@ -1,5 +1,8 @@
 package com.robp.serviceManager.enumeration;
 
+import lombok.Getter;
+
+@Getter
 public enum Status {
     SERVICE_UP("SERVICE_UP"),
     SERVICE_DOWN("SERVICE_DOWN");
@@ -9,7 +12,4 @@ public enum Status {
         this.status = status;
     }
 
-    public String getStatus(){
-        return this.status;
-    }
 }
