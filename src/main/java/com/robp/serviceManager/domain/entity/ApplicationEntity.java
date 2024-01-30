@@ -3,6 +3,7 @@ package com.robp.serviceManager.domain.entity;
 import com.robp.serviceManager.enumeration.Status;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -28,7 +29,7 @@ public class ApplicationEntity {
 
     @NotEmpty(message = "IP address can't be empty")
     private String ipAddress;
-    @NotEmpty(message = "Port number can't be empty")
+    @NotNull(message = "Port number can't be null")
     @Column(unique = true)
     private int portNumber;
     private String name;
