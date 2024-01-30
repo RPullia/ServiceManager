@@ -8,7 +8,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ApplicationRepository extends JpaRepository<ApplicationEntity, Long> {
     Iterable<ApplicationEntity> findByIpAddress(String ipAddress);
-    ApplicationEntity findByIpAddressAndPortNumber(String ipAddress, String portNumber);
+    ApplicationEntity findByIpAddressAndPortNumber(String ipAddress, int portNumber);
     Iterable<ApplicationEntity> findByName(String name);
     Iterable<ApplicationEntity> findByStatus(Status status);
 }

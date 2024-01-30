@@ -30,7 +30,7 @@ public class ApplicationEntity {
     private String ipAddress;
     @NotEmpty(message = "Port number can't be empty")
     @Column(unique = true)
-    private String portNumber;
+    private int portNumber;
     private String name;
     private String description;
     private String imageUrl;
