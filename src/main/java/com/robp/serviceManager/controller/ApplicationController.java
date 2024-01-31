@@ -39,13 +39,13 @@ public class ApplicationController {
         );
     }
 
-    @PostMapping("/create")
-    public ResponseEntity<Response> createApplication(@RequestBody @Valid ApplicationEntity application){
+    @PostMapping("/registrate")
+    public ResponseEntity<Response> registrateApplication(@RequestBody @Valid ApplicationEntity application){
 
         return new ResponseEntity<>(
                 Response.builder()
                         .timeStamp(now())
-                        .data(of("application", applicationService.createApplication(application)))
+                        .data(of("application", applicationService.registrateApplication(application)))
                         .message("Application created")
                         .status(CREATED)
                         .statusCode(CREATED.value())

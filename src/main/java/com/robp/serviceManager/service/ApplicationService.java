@@ -8,7 +8,7 @@ import java.util.Optional;
 
 public interface ApplicationService {
 
-    ApplicationEntity createApplication(ApplicationEntity applicationEntity);
+    ApplicationEntity registrateApplication(ApplicationEntity applicationEntity);
     Collection<ApplicationEntity> listApplications(int limit);
     Optional<ApplicationEntity> getApplication(Long id);
     ApplicationEntity updateApplication(ApplicationEntity applicationEntity);

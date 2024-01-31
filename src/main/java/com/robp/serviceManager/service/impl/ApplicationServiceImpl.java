@@ -28,7 +28,7 @@ public class ApplicationServiceImpl implements ApplicationService {
     private final ApplicationRepository applicationRepository;
 
     @Override
-    public ApplicationEntity createApplication(ApplicationEntity applicationEntity) {
+    public ApplicationEntity registrateApplication(ApplicationEntity applicationEntity) {
         // todo: validation
         log.info("Creating a new application {}", applicationEntity.getName());
         applicationEntity.setImageUrl(setApplicationImageUrl());
